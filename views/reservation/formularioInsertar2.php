@@ -27,7 +27,7 @@
 							foreach($data['timeTable'] as $timeTable ) {
 
 								if ($timeTable->dayOfWeek == $trueDay){
-									if (array_search($timeTable->id, $data['time2']) != false) {
+									if (array_search($timeTable->id, $data['time2']) === false) {
 									echo"<option name='idTimeTable' value='" . $timeTable->id . "'>&bull; "  . $timeTable->starTime . "-" . $timeTable->endTime . "</option>";
 								}else{
 									echo "<option disabled name='idTimeTable' value='" . $timeTable->id . "'>&bull; "  . $timeTable->starTime . "-" . $timeTable->endTime . "</option>";
@@ -36,13 +36,6 @@
 
 						}
 							echo "</select>";
-							print_r($data['time2']);
-
-
-							$test=array_search($timeTable->id, $data['time2']);
-							print_r($test);
-
-
 
 						
 

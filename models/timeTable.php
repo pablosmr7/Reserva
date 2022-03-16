@@ -30,12 +30,16 @@
             $fecha=$_POST['date'];
             $resource=$_POST['resource'];
 
-            $result = $this->db->consulta("SELECT * FROM reservations
+            $result = $this->db->consulta("SELECT idTimeSlot FROM reservations
                 WHERE reservations.idResource='$resource'
                 AND reservations.date='$fecha'");
 
+            $resultArray = array();
+            foreach ($result as $fila) {
+                $resultArray[] = $fila->idTimeSlot;
+            }
             
-            return $result;
+            return $resultArray;
 
         }
 
